@@ -31,7 +31,7 @@ public class Errorer {
 
     public void reportException(Exception e, Object o, String... additionalData) {
         String stackTrace = getErrorStackTrace(e);
-        String className = o.getClass().getName();
+        String className = (o != null) ? o.getClass().getName() : "Static Usage";
         String errorText = e.getClass().getName() + " in " + className;
 
         ZonedDateTime warsawTime = ZonedDateTime.now(ZoneId.of("Europe/Warsaw"));
